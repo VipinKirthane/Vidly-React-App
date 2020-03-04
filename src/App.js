@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "../src/App.css";
+import Movies from "./components/movies";
+import { getMovies } from "./services/fakeMovieService";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    movies: getMovies()
+  };
+
+  handleDelete = () => {};
+
+  render() {
+    console.log(getMovies);
+    return (
+      <Movies />
+      // <main className="container">
+      //   <h1>Vidly</h1>
+
+      //   <table>
+      //     <thead>
+      //       <tr>
+      //         <th>Title</th>
+      //         <th>Genre</th>
+      //         <th>Stock</th>
+      //         <th>Rate</th>
+      //         <th>Edit Quantity</th>
+      //       </tr>
+      //     </thead>
+      //     <tbody>
+      //       <tr>{/* <th>{this.getMovies.movies[0].title}</th> */}</tr>
+      //     </tbody>
+      //   </table>
+      // </main>
+    );
+  }
 }
 
 export default App;
